@@ -9,7 +9,7 @@ some condition is met OR
 the time is up, so here it is abstracted and generalized into
 a neat package. 
 
-Yep, that's 23 lines of code + tests.
+Yep, that's 25 lines of code + tests.
 
 
 Here's a demo use case:
