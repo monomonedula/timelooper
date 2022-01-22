@@ -1,5 +1,7 @@
 ## Timelooper
 
+[![Build Status](https://app.travis-ci.com/monomonedula/timelooper.svg?branch=master)](https://app.travis-ci.com/monomonedula/timelooper)
+
 I found myself re-implementing the same 
 pattern over and over 
 when it comes to repeating some task until 
