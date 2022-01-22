@@ -31,7 +31,7 @@ class CollectableBatch(Looped):
         self._maxsize = maxsize
     
     async def do(self) -> None:
-        self.batch.append(await self.queue.get())
+        self.batch.append(await self._queue.get())
 
     def should_stop(self) -> bool:
         return len(self.batch) == self._maxsize
