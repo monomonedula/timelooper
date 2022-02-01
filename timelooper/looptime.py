@@ -21,5 +21,7 @@ async def loop_timed(action: Looped, interval: timedelta) -> None:
             await asyncio.wait((proc, timer), return_when=asyncio.FIRST_COMPLETED)
             if not proc.done():
                 proc.cancel()
+            elif proc.exception():
+                proc.result()
     finally:
         timer.cancel()

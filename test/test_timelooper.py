@@ -48,3 +48,16 @@ async def test_timelooper_breaks_call_on_time():
     await loop_timed(looped, timedelta(seconds=3.5))
     assert len(looped.collected) == 0
     assert 3.4 < monotonic() - started_at < 3.6
+
+
+@pytest.mark.asyncio
+async def test_timelooper_raises():
+    class Raising(Looped):
+        async def do(self) -> None:
+            raise IOError("Hello there")
+
+        def should_stop(self) -> bool:
+            return False
+
+    with pytest.raises(IOError, match="Hello there") as exc_info:
+        await loop_timed(Raising(), timedelta(seconds=0.5))
